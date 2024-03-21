@@ -141,7 +141,7 @@ $ npx msw init public/ --save
 
 ### 4.3. msw api 모킹 소개
 
-![msw](https://github.com/taetaeo/react-ts-boilerplate-with-rtk-2024.git/public/images/msw.png)
+![msw](https://raw.githubusercontent.com/taetaeo/react-ts-boilerplate-with-rtk-2024/main/public/images/msw.png)
 
 ### 4.4. 사용법
 
