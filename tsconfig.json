@@ -15,12 +15,26 @@
     "isolatedModules": true, // 각 파일을 독립적인 모듈로 처리할 지 여부를 설정합니다.
     "jsx": "react-jsx", // JSX를 어떻게 처리할 지 지정합니다.
     "noEmit": false, // 출력 파일을 생성하지 않도록 설정합니다.
-    "baseUrl": "./src", // 모듈 해석을 시작할 기본 경로를 지정합니다.
+    "baseUrl": ".", // 모듈 해석을 시작할 기본 경로를 지정합니다.
+    "declaration": true,
+    "declarationMap": true,
     "paths": {
-      "@components/*": ["components/*"] // 모듈을 참조할 때 사용할 경로 별칭을 설정합니다.
+      // 모듈을 참조할 때 사용할 경로 별칭을 설정합니다.
+      "@commons/*": ["src/_commons/*"],
+      "@mocks/*": ["src/_mocks/*"],
+      "@components/*": ["src/components/*"],
+      "@configs/*": ["src/configs/*"],
+      "@dto/*": ["src/dto/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@lib/*": ["src/lib/*"],
+      "@redux/*": ["src/redux/*"],
+      "@views/*": ["src/views/*"],
+      "@styles/*": ["src/styles/*"],
+      "@utils/*": ["src/utils/*"],
+      "_types/*": ["src/_commons/types/*"]
     },
     "outDir": "./dist" // 컴파일된 파일의 출력 디렉토리를 지정합니다.
   },
-  "include": ["src/**/*"], // 컴파일할 파일을 지정합니다.
-  "exclude": ["node_modules"] // 컴파일에서 제외할 파일을 지정합니다.
+  "include": ["src/**/*", "src/**/*.d.ts"], // 컴파일할 파일을 지정합니다.
+  "exclude": ["node_modules", "src/_mocks/**/*"] // 컴파일에서 제외할 파일을 지정합니다.
 }
