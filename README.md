@@ -1,4 +1,4 @@
-# React + Typescript + ReduxToolkit Boilerplate
+# React + Typescript + webpack with ReduxToolkit Boilerplate
 
 - 본 프로젝트는 [React Boilerplate](https://github.com/taetaeo/react-ts-boilerplate-2024)에서 상태관리를 추가한 프로젝트입니다.
 
@@ -20,7 +20,9 @@
  ┗ 📜index.tsx
 ```
 
-1. components:
+> `_폴더명`처럼 `_` 가 붙은 것들은 변경이 되지 않은 파일들을 담아두는 공간입니다.
+
+1. components
 
 - 리액트 컴포넌트들을 저장하는 폴더입니다. 여기에는 프로젝트의 재사용 가능한 UI 요소들이나 작은 컴포넌트들이 위치할 수 있습니다.
 
@@ -54,6 +56,7 @@
 
 7. \_commons
 
+- 기본형의 컴포넌트들을 정의합니다.
 - 프로젝트 전반에서 공통으로 사용되는 타입 정의나 상수 값 등을 저장하는 폴더입니다.
 - 내부에는 글로벌로 저장할 타입들 또는 프로젝트에 필요할 타입들을 저장합니다.
 
@@ -68,8 +71,6 @@
 10. index.tsx
 
 - React 애플리케이션의 렌더링을 위한 파일로, ReactDOM.render() 함수를 사용하여 앱을 실제 DOM에 렌더링합니다.
-
-> `_폴더명`처럼 `_` 가 붙은 것들은 변경이 되지 않은 파일들을 담아두는 공간입니다.
 
 ## 2. React Router Dom 설치
 
@@ -137,3 +138,33 @@ $ npx msw init public/ --save
 ```
 
 터미널에 다음의 명령어를 입력하면, `mockServiceWorker.js` 파일이 생성됩니다.
+
+### 4.3. msw api 모킹 소개
+
+![msw](https://github.com/taetaeo/react-ts-boilerplate-with-rtk-2024.git/public/images/msw.png)
+
+### 4.4. 사용법
+
+> /src/\_mocks 에서 확인할 수 있습니다.
+
+- `resolver` : mock data를 위한 controller의 역할을 합니다.,
+- `db` : 가상의 데이터 베이스
+
+```tsx
+import { useEffect } from 'react';
+
+const HomeView = () => {
+  useEffect(() => {
+    fetch('/api/dummy')
+      .then(response => response.json())
+      .then(console.log)
+      .catch(console.error);
+  }, []);
+
+  return <div>Home화면</div>;
+};
+
+export default HomeView;
+```
+
+이러한 방법으로 가짜의 데이터 통신을 할 수 있습니다.
